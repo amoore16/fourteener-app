@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Mountain } from '../mountain';
 
 @Component({
   selector: 'app-mountains',
@@ -7,8 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MountainsComponent implements OnInit {
 
-  mountain = 'Elbert';
-  
+  mountain: Mountain = {
+    rank: 1,
+    name: 'Mt. Elbert',
+    elevation: 14433,
+    img: "https://www.14ers.com/photos/mtelbert/201207_Elbert01a_l.jpg?lu=20180101"
+  }
+
   constructor() { }
 
   ngOnInit() {
