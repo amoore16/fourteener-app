@@ -11,7 +11,13 @@
     <div>elevation: {{mountain.elevation | number}}</div>
   </div>
   <div class="mdl-card__actions mdl-card--border">
-    <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">Edit</a>
+    <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" (click)="show=!show">Edit</a>
+    <div [hidden]="!show" class="mdl-card__supporting-text">
+      <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+        <input [(ngModel)]="mountain.name" class="mdl-textfield__input" type="text" id="mountainname">
+        <label class="mdl-textfield__label" for="mountainname">Name...</label>
+      </div>
+    </div>
   </div>
   <div class="mdl-card__menu">
     <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
