@@ -1,12 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { Mountain } from '../mountain';
 
+
 @Component({
   selector: 'app-mountains',
   templateUrl: './mountains.component.html',
   styleUrls: ['./mountains.component.css']
 })
 export class MountainsComponent implements OnInit {
+
+  // mountains = MOUNTAINS;
 
   mountain: Mountain = {
     rank: 1,
@@ -18,6 +21,7 @@ export class MountainsComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    
   }
 
 

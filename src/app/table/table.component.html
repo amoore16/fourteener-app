@@ -1,0 +1,18 @@
+<table class="mdl-data-table mdl-js-data-table" style="margin:10px auto;">
+  <thead>
+    <tr>
+      <th>Rank</th>
+      <th class="mdl-data-table__cell--non-numeric">Name</th>
+      <th>Elevation</th>
+      
+    </tr>
+  </thead>
+  <tbody>
+      <tr *ngFor="let mount of mountains | async" >
+        <td *ngFor="let col of columns">
+          {{mount[col]}}
+        </td>
+        
+      </tr>
+  </tbody>
+</table>
