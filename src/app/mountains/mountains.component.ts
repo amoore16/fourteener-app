@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Mountain } from '../mountain';
+import { MOUNTAINS } from '../mock-mountains';
 
 
 @Component({
@@ -9,13 +10,12 @@ import { Mountain } from '../mountain';
 })
 export class MountainsComponent implements OnInit {
 
-  // mountains = MOUNTAINS;
+  mountains = MOUNTAINS;
 
-  mountain: Mountain = {
-    rank: 1,
-    name: 'Mt. Elbert',
-    elevation: 14433,
-    img: "https://www.14ers.com/photos/mtelbert/201207_Elbert01a_l.jpg?lu=20180101"
+  selectedMountain: Mountain;
+
+  onSelect(mountain: Mountain): void {
+    this.selectedMountain = mountain;
   }
 
   constructor() { }

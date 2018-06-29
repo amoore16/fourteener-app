@@ -1,32 +1,43 @@
-
-
-<div class="mdl-card mdl-shadow--4dp" style="margin:10px auto">
-  <div class="mdl-card__title">
-    <h2 class="mdl-card__title-text">{{ mountain.name | uppercase }}</h2>
-  </div>
-  <div class="mdl-card__media">
-    <img src={{mountain.img}} width="100%" height="140" border="0" alt="Mt. Elbert">
-  </div>
-  <div class="mdl-card__supporting-text">
-    <div>rank: {{mountain.rank}}</div>
-    <div>name: {{mountain.name}} </div>
-    <div>elevation: {{mountain.elevation | number}}</div>
-  </div>
-  <div class="mdl-card__actions mdl-card--border">
-    <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" (click)="show=!show">Edit</a>
-    <div [hidden]="!show" class="mdl-card__supporting-text">
-      <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-        <input [(ngModel)]="mountain.name" class="mdl-textfield__input" type="text" id="mountainname">
-        <label class="mdl-textfield__label" for="mountainname">Name...</label>
+<h2>Front Range</h2>
+<ul class="mdl-list mdl-shadow--4dp">
+  <li class="mdl-list__item" *ngFor="let mount of mountains" (click)="onSelect(mount)">
+    <span class="mdl-list__item-primary-content">{{mount.rank}} {{mount.name}} {{mount.elevation}}</span>
+  </li>
+</ul>
+<div *ngIf="selectedMountain">
+  <div class="mdl-card mdl-shadow--4dp" style="margin:10px auto">
+    <div class="mdl-card__title">
+      <h2 class="mdl-card__title-text">{{ selectedMountain.name | uppercase }}</h2>
+    </div>
+    <div class="mdl-card__media">
+      <img src={{selectedMountain.img}} width="100%" height="140" border="0">
+    </div>
+    <div class="mdl-card__supporting-text">
+      <div>rank: {{selectedMountain.rank}}</div>
+      <div>name: {{selectedMountain.name}} </div>
+      <div>elevation: {{selectedMountain.elevation | number}}</div>
+    </div>
+    <div class="mdl-card__actions mdl-card--border">
+      <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" (click)="show=!show">Edit</a>
+      <div *ngIf="show">
+        <div class="mdl-card__supporting-text">
+          <div class="mdl-textfield mdl-js-textfield">
+            <label class="mdl-textfield__label" for="mountainname"></label>
+            <input [(ngModel)]="selectedMountain.name" class="mdl-textfield__input" type="text" id="mountainname">
+          </div>
+        </div>
       </div>
+      
+    </div>
+    <div class="mdl-card__menu">
+      <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
+        <i class="material-icons">share</i>
+      </button>
     </div>
   </div>
-  <div class="mdl-card__menu">
-    <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
-      <i class="material-icons">share</i>
-    </button>
-  </div>
+
 </div>
+
 
 
 
