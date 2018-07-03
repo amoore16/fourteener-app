@@ -1,10 +1,10 @@
 <div *ngIf="mountain">
-  <div class="mdl-card mdl-shadow--4dp" style="margin:10px auto;">
+  <div class="mdl-card mdl-shadow--4dp">
     <div class="mdl-card__title">
       <h2 class="mdl-card__title-text">{{ mountain.name | uppercase }}</h2>
     </div>
     <div class="mdl-card__media">
-      <img src={{mountain.img}} width="100%" height="140" border="0">
+      <img src={{mountain.img}} width="100%" height="100%" border="0">
     </div>
     <div class="mdl-card__supporting-text">
       <div>rank: {{ mountain.rank }}</div>

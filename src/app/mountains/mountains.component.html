@@ -1,20 +1,29 @@
-<div id="parent">
-  <div id="left">
+<div class="mdl-grid">
+  <div class="mdl-cell mdl-cell--2-col-desktop mdl-cell--hide-phone mdl-cell--6-col-tablet">
     
-    <ul class="mdl-list mdl-shadow--4dp">
-      <h4>Front Range</h4>
-      <li class="mdl-list__item" *ngFor="let mount of mountains" 
-          (click)="onSelect(mount)"
-          [class.selected]="mount === selectedMountain">
-        <span class="mdl-list__item-primary-content"><span class="rank"> {{mount.rank}} </span> <span class="name"> {{mount.name}} </span></span>
-      </li>
-    </ul> 
+        <ul class="mdl-list mdl-shadow--4dp">
+            <h4>Front Range</h4>
+            <li class="mdl-list__item" *ngFor="let mount of mountains" 
+                (click)="onSelect(mount)"
+                [class.selected]="mount === selectedMountain">
+              <span class="mdl-list__item-primary-content"><span class="rank"> {{mount.rank}} </span> <span class="name"> {{mount.name}} </span></span>
+            </li>
+          </ul>
+    
+     
   </div>
-  <div id="right">
-    <app-mountain-detail [mountain]="selectedMountain"></app-mountain-detail>  
+  <div class="mdl-cell mdl-cell--8-col-desktop mdl-cell--4-col-phone mdl-cell--6-col-tablet">
+    <app-mountain-detail [mountain]="selectedMountain"></app-mountain-detail>
   </div>
-
 </div>
+    
+    
+  
+  
+      
+ 
+
+
 
 
 
