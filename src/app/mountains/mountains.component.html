@@ -1,42 +1,23 @@
-<h2>Front Range</h2>
-<ul class="mdl-list mdl-shadow--4dp">
-  <li class="mdl-list__item" *ngFor="let mount of mountains" (click)="onSelect(mount)">
-    <span class="mdl-list__item-primary-content">{{mount.rank}} {{mount.name}} {{mount.elevation}}</span>
-  </li>
-</ul>
-<div *ngIf="selectedMountain">
-  <div class="mdl-card mdl-shadow--4dp" style="margin:10px auto">
-    <div class="mdl-card__title">
-      <h2 class="mdl-card__title-text">{{ selectedMountain.name | uppercase }}</h2>
-    </div>
-    <div class="mdl-card__media">
-      <img src={{selectedMountain.img}} width="100%" height="140" border="0">
-    </div>
-    <div class="mdl-card__supporting-text">
-      <div>rank: {{selectedMountain.rank}}</div>
-      <div>name: {{selectedMountain.name}} </div>
-      <div>elevation: {{selectedMountain.elevation | number}}</div>
-    </div>
-    <div class="mdl-card__actions mdl-card--border">
-      <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" (click)="show=!show">Edit</a>
-      <div *ngIf="show">
-        <div class="mdl-card__supporting-text">
-          <div class="mdl-textfield mdl-js-textfield">
-            <label class="mdl-textfield__label" for="mountainname"></label>
-            <input [(ngModel)]="selectedMountain.name" class="mdl-textfield__input" type="text" id="mountainname">
-          </div>
-        </div>
-      </div>
-      
-    </div>
-    <div class="mdl-card__menu">
-      <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
-        <i class="material-icons">share</i>
-      </button>
-    </div>
+<div id="parent">
+  <div id="left">
+    
+    <ul class="mdl-list mdl-shadow--4dp">
+      <h4>Front Range</h4>
+      <li class="mdl-list__item" *ngFor="let mount of mountains" 
+          (click)="onSelect(mount)"
+          [class.selected]="mount === selectedMountain">
+        <span class="mdl-list__item-primary-content"><span class="rank"> {{mount.rank}} </span> <span class="name"> {{mount.name}} </span></span>
+      </li>
+    </ul> 
+  </div>
+  <div id="right">
+    <app-mountain-detail [mountain]="selectedMountain"></app-mountain-detail>  
   </div>
 
 </div>
+
+
+
 
 
 

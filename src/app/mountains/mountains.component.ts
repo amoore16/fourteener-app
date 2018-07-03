@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Mountain } from '../mountain';
-import { MOUNTAINS } from '../mock-mountains';
+import { MountainService } from '../mountain.service';
 
 
 @Component({
@@ -9,20 +9,26 @@ import { MOUNTAINS } from '../mock-mountains';
   styleUrls: ['./mountains.component.css']
 })
 export class MountainsComponent implements OnInit {
-
-  mountains = MOUNTAINS;
-
+  
   selectedMountain: Mountain;
+  
+  mountains: Mountain[];
+  
+  constructor(private mountainService: MountainService) { }
+  
 
+  
+  ngOnInit() {
+    this.getMountains();
+  }
+  
   onSelect(mountain: Mountain): void {
     this.selectedMountain = mountain;
   }
-
-  constructor() { }
-
-  ngOnInit() {
-    
+  
+  getMountains(): void {
+    this.mountainService.getMountains()
+      .subscribe(mountains => this.mountains = mountains);
   }
-
 
 }

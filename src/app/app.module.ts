@@ -6,13 +6,15 @@ import { AppComponent } from './app.component';
 import { MountainsComponent } from './mountains/mountains.component';
 import { TableComponent } from './table/table.component';
 import { TableRowComponent } from './table-row/table-row.component';
+import { MountainDetailComponent } from './mountain-detail/mountain-detail.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MountainsComponent,
     TableComponent,
-    TableRowComponent
+    TableRowComponent,
+    MountainDetailComponent
   ],
   imports: [
     BrowserModule,
